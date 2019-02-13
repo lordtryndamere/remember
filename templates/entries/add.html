@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Remember</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
+    <script> function show() {
+        alert("Se ha guardado un recordatorio")
+        }
+        function dropdown() {
+        alert("Esta siendo redirigido al perfil del Desarrollador")
+        }
+
+    </script>  
+</head>
+
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <div class=" navbar-header">
+                    <h1 class="title">
+                      <a class="navbar-brand" href="{% url 'home' %}">Recordatorio</a>
+                    </h1> 
+                </div>
+            </div>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+		    <li onclick="dropdown()"><a href="https://www.facebook.com/profile.php?id=100012203379833" onclick="pageTracker._link(this.href); return false;">Conoce al Desarrollador</a></li>
+		</ul>                   	
+    </section>
+    <section class="section">
+        <div class="container">
+                
+        <form method="POST" action="{% url 'add'%}"> {%csrf_token %}
+        
+                <div class="field">
+                    <div class="control">
+                        {{form.text}}
+                    </div>
+                </div>
+
+                <div class="field is-grouped is-grouped-right">
+                    <div class="control">
+                        <button onclick ="show()">Guardar Recordatorio</button>
+                    </div>
+                </div>
+        </form>
+        </div>
+
+    </section>
+    <footer class="footer">
+    </footer>
+</body>
+
+</html>
